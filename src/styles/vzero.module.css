@@ -1,0 +1,107 @@
+.vzeroPayment {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.vzeroPayment h3 {
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+}
+
+.formGroup {
+  margin-bottom: 15px;
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #555;
+}
+
+.formGroup input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+}
+
+.formGroup input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.formRow {
+  display: flex;
+  gap: 10px;
+}
+
+.formRow .formGroup {
+  flex: 1;
+}
+
+.formRow .formGroup:nth-child(3) {
+  flex: 0 0 80px;
+}
+
+.vzeroPayment button {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.vzeroPayment button:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+.vzeroPayment button:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}
+
+.error {
+  color: #dc3545;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.success {
+  color: #28a745;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.connectionStatus {
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.connectionStatus.connected {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.connectionStatus.disconnected {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}

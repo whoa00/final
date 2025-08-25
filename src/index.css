@@ -1,0 +1,23 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Define CSS variables for light and dark themes */
+:root {
+  --background-color: #fff;
+  --text-color: #000;
+}
+
+[data-theme='dark'] {
+  --background-color: #1f1f1f;
+  --text-color: #fff;
+}
+
+/* Apply the variables to the app */
+body, [data-theme] {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}

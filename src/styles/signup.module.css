@@ -1,0 +1,111 @@
+.signupContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 64px - 48px); /* Adjust for header and footer */
+  padding: 24px;
+}
+
+.signupCard {
+  width: 100%;
+  max-width: 500px; /* Increased max-width to accommodate more fields */
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--border-color);
+  background: var(--antd-background);
+  transition: all 0.3s ease;
+}
+
+/* Dark mode specific styles */
+[data-theme='dark'] .signupCard {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Styles for the buttons within Input.Group */
+.inputGroupButton {
+  margin-left: 8px; /* Space between input and button */
+}
+
+/* General button styling for the custom buttons (if not Ant Design Buttons) */
+.customButton {
+  width: 100%;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+.customButton.outline-secondary {
+  background-color: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+}
+
+.customButton.outline-secondary:hover {
+  background-color: var(--table-hover-bg);
+}
+
+.customButton.outline-success {
+  background-color: #52c41a; /* Ant Green */
+  border: 1px solid #52c41a;
+  color: #fff;
+}
+
+.customButton.outline-success:hover {
+  background-color: #73d13d;
+}
+
+/* Error message styling */
+.errorText {
+  color: #ff4d4f; /* Ant Red */
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+/* Radio and Checkbox group styling */
+.genderGroup, .surveyGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.genderGroup label, .surveyGroup label {
+  color: var(--text-color);
+}
+
+/* Adjust Ant Design components within the form for better theming */
+.ant-form-item-label > label {
+  color: var(--text-color) !important; /* Ensure label color adapts */
+}
+
+.ant-input,
+.ant-input-password,
+.ant-picker {
+  background-color: var(--antd-background) !important;
+  color: var(--text-color) !important;
+  border-color: var(--border-color) !important;
+}
+
+.ant-input::placeholder {
+  color: var(--text-secondary) !important;
+}
+
+/* Specific adjustments for dark mode */
+[data-theme='dark'] .ant-input,
+[data-theme='dark'] .ant-input-password,
+[data-theme='dark'] .ant-picker {
+  background-color: #2a2a2a !important;
+  color: #fff !important;
+  border-color: #434343 !important;
+}
+
+[data-theme='dark'] .ant-input::placeholder {
+  color: #8c8c8c !important;
+}
+
+[data-theme='dark'] .ant-form-item-label > label {
+  color: #d9d9d9 !important;
+}

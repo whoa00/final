@@ -1,0 +1,432 @@
+/* CSS Variables for Theming */
+:root {
+  --antd-background: #fff;
+  --background-color: #f0f2f5;
+  --text-color: #1a1a1a;
+  --text-secondary: #595959;
+  --border-color: #e8e8e8;
+  --table-header-bg: #fafafa;
+  --table-hover-bg: #f5f5f5;
+
+  /* Box Shadows for Light Mode */
+  --box-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --box-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.06);
+  --box-shadow-md: 0 4px 8px rgba(0, 0, 0, 0.08);
+  --box-shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='dark'] {
+  --antd-background: #1f1f1f;
+  --background-color: #141414;
+  --text-color: #fff;
+  --text-secondary: #d9d9d9;
+  --border-color: #434343;
+  --table-header-bg: #333;
+  --table-hover-bg: #3a3a3a;
+}
+
+/* Layout Styles */
+.ant-layout {
+  background: var(--background-color);
+}
+
+.ant-layout-sider {
+  background: var(--antd-background) !important;
+  transition: transform 0.3s ease;
+}
+
+.ant-layout-content {
+  background: var(--background-color);
+  color: var(--text-color);
+}
+
+/* Header Styles */
+.site-layout-header {
+  height: 64px;
+  line-height: 64px;
+  padding: 0 24px;
+  background: var(--antd-background);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+  position: fixed;
+  width: calc(100% - 200px);
+  z-index: 100;
+  left: 200px;
+  box-shadow: var(--box-shadow-xs);
+}
+
+[data-theme='dark'] .site-layout-header {
+  box-shadow: none;
+}
+
+.app-title {
+  color: var(--text-color);
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Footer Styles */
+.site-footer {
+  background: var(--antd-background);
+  color: var(--text-secondary);
+  border-top: 1px solid var(--border-color);
+  box-shadow: var(--box-shadow-xs);
+}
+
+[data-theme='dark'] .site-footer {
+  box-shadow: none;
+}
+
+/* Navbar Styles */
+.navbar {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--antd-background);
+}
+/* Navbar Menu Styles */
+.ant-menu {
+  background: var(--antd-background) !important;
+  color: var(--text-color) !important;
+}
+
+.ant-menu-item,
+.ant-menu-item a {
+  color: var(--text-color) !important;
+}
+
+.ant-menu-item:hover,
+.ant-menu-item a:hover {
+  background: var(--table-hover-bg) !important;
+  color: var(--text-color) !important;
+}
+
+.ant-menu-item-selected,
+.ant-menu-item-selected a {
+  background: var(--table-header-bg) !important;
+  color: var(--text-color) !important;
+}
+
+[data-theme='dark'] .ant-menu-item-selected,
+[data-theme='dark'] .ant-menu-item-selected a {
+  background: var(--table-header-bg) !important;
+  color: var(--text-color) !important;
+}
+
+.ant-menu-item .anticon {
+  color: var(--text-color) !important;
+}
+/* Settings Page Styles */
+.settings-page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--box-shadow-md);
+  background: var(--antd-background);
+}
+
+[data-theme='dark'] .settings-page-container {
+  box-shadow: none;
+}
+
+.settings-sidebar {
+  background: var(--antd-background);
+  border-right: 1px solid var(--border-color);
+}
+
+.settings-title {
+  color: var(--text-color);
+  padding: 16px 24px;
+  margin: 0;
+}
+
+/* General Container Styles */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+  background: var(--antd-background);
+  border-radius: 8px;
+  box-shadow: var(--box-shadow-md);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+[data-theme='dark'] .container {
+  box-shadow: none;
+}
+
+/* Title Styles */
+h1.ant-typography,
+h2.ant-typography,
+h3.ant-typography,
+h4.ant-typography,
+h5.ant-typography {
+  font-weight: 500;
+  color: var(--text-color);
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+h1.ant-typography {
+  font-size: 32px;
+}
+
+h2.ant-typography {
+  font-size: 24px;
+}
+
+h3.ant-typography {
+  font-size: 20px;
+}
+
+/* Text Styles */
+p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+
+/* Table Styles */
+.ant-table {
+  background: var(--antd-background);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.ant-table-thead > tr > th {
+  background: var(--table-header-bg);
+  font-weight: 500;
+  color: var(--text-color);
+  border-bottom: 1px solid var(--border-color);
+  padding: 12px 16px;
+}
+
+.ant-table-tbody > tr > td {
+  border-bottom: 1px solid var(--border-color);
+  padding: 12px 16px;
+  color: var(--text-secondary);
+}
+
+.ant-table-tbody > tr:hover > td {
+  background: var(--table-hover-bg);
+}
+
+/* Form Styles */
+.ant-form-item-label > label {
+  color: var(--text-secondary) !important;
+}
+
+.ant-input,
+.ant-input-password,
+.ant-picker {
+  border-radius: 4px;
+  background-color: var(--antd-background) !important;
+  color: var(--text-color) !important;
+  border-color: var(--border-color) !important;
+}
+
+.ant-input::placeholder {
+  color: var(--text-secondary) !important;
+}
+
+.ant-btn-primary {
+  border-radius: 4px;
+}
+
+/* Logo Placeholder */
+.logo-placeholder {
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--text-color);
+  background: var(--antd-background);
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* Media Queries for Responsive Design */
+
+/* Tablets (768px and below) */
+@media (max-width: 768px) {
+  .ant-layout-sider {
+    position: fixed;
+    height: 100vh;
+    z-index: 101;
+    width: 200px !important;
+    max-width: 200px !important;
+    min-width: 200px !important;
+    transform: translateX(-200px);
+  }
+
+  .ant-layout-sider.sidebar-open {
+    transform: translateX(0);
+  }
+
+  .hamburger-menu {
+    display: block !important;
+  }
+
+  .ant-layout {
+    margin-left: 0 !important;
+  }
+
+  .site-layout-header {
+    width: 100% !important;
+    left: 0 !important;
+    padding: 0 16px;
+  }
+
+  .container {
+    padding: 16px;
+    max-width: 100%;
+  }
+
+  h1.ant-typography {
+    font-size: 28px;
+  }
+
+  h2.ant-typography {
+    font-size: 22px;
+  }
+
+  h3.ant-typography {
+    font-size: 18px;
+  }
+
+  .ant-form-item {
+    margin-bottom: 16px;
+  }
+
+  .loginCard,
+  .signupCard {
+    max-width: 90%;
+    padding: 24px;
+    box-shadow: var(--box-shadow-sm);
+  }
+
+  [data-theme='dark'] .loginCard,
+  [data-theme='dark'] .signupCard {
+    box-shadow: none;
+  }
+
+  .ant-table {
+    font-size: 14px;
+  }
+
+  .ant-table-thead > tr > th,
+  .ant-table-tbody > tr > td {
+    padding: 10px 12px;
+  }
+}
+
+/* Smartphones (576px and below) */
+@media (max-width: 576px) {
+  .ant-layout-sider {
+    transform: translateX(-200px);
+  }
+
+  .ant-layout-sider.sidebar-open {
+    transform: translateX(0);
+    display: block;
+  }
+
+  .hamburger-menu {
+    display: block !important;
+  }
+
+  .site-layout-header {
+    padding: 0 12px;
+    flex-wrap: wrap;
+    height: auto;
+    line-height: normal;
+  }
+
+  .app-title {
+    font-size: 18px;
+    margin: 12px 0;
+  }
+
+  .ant-btn {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+
+  .ant-layout-content {
+    padding: 76px 12px 12px 12px;
+  }
+
+  .container {
+    padding: 12px;
+    border-radius: 4px;
+    box-shadow: var(--box-shadow-sm);
+  }
+
+  [data-theme='dark'] .container {
+    box-shadow: none;
+  }
+
+  h1.ant-typography {
+    font-size: 24px;
+  }
+
+  h2.ant-typography {
+    font-size: 20px;
+  }
+
+  h3.ant-typography {
+    font-size: 16px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  .loginCard,
+  .signupCard {
+    padding: 16px;
+    max-width: 100%;
+    box-shadow: var(--box-shadow-sm);
+  }
+
+  [data-theme='dark'] .loginCard,
+  [data-theme='dark'] .signupCard {
+    box-shadow: none;
+  }
+
+  .ant-form-item-label > label {
+    font-size: 14px;
+  }
+
+  .ant-input,
+  .ant-input-password,
+  .ant-picker {
+    font-size: 14px;
+  }
+
+  .ant-table {
+    font-size: 12px;
+  }
+
+  .ant-table-thead > tr > th,
+  .ant-table-tbody > tr > td {
+    padding: 8px 10px;
+  }
+
+  .genderGroup,
+  .surveyGroup {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .site-footer {
+    padding: 12px 0;
+    font-size: 14px;
+  }
+}
