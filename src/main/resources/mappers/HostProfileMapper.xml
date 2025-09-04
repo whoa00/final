@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.co.ictedu.pitched.client.dao.UsersDao">
+
+	<!-- 호스트 프로필 저장/수정 -->
+	<update id="updateHostProfile"
+		parameterType="usersdto">
+		MERGE INTO Users u
+		USING (SELECT #{user_id} AS user_id,
+		#{host_intro} AS host_intro,
+		#{host_color} AS host_color
+		FROM dual) src
+		ON (u.user_id = src.user_id)
+		WHEN MATCHED THEN
+		UPDATE SET u.host_intro = src.host_intro,
+		u.host_color = src.host_color
+		WHEN NOT MATCHED THEN
+		INSERT (user_id, host_intro, host_color)
+		VALUES (src.user_id, src.host_intro, src.host_color)
+	</update>
+
+</mapper>
+

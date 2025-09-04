@@ -1,0 +1,56 @@
+plugins {
+	id 'java'
+	id 'war'
+	id 'org.springframework.boot' version '3.5.5'
+	id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'kr.co.ictedu'
+version = '0.0.1-SNAPSHOT'
+description = 'Pitched with two DB'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(17)
+	}
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+    // Spring Web for building REST APIs
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    // MyBatis for database interaction
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3'
+
+    // Spring Security (dependency is here, configuration is commented out)
+    //implementation 'org.springframework.boot:spring-boot-starter-security'
+
+    // Lombok for reducing boilerplate code
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    // PostgreSQL Driver
+    runtimeOnly 'org.postgresql:postgresql'
+
+    // Oracle Driver (use ojdbc11 for compatibility with modern JDKs)
+    runtimeOnly 'com.oracle.database.jdbc:ojdbc11'
+
+    // Spring Boot Test dependencies
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test:3.0.3'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+}
+tasks.named('test') {
+	useJUnitPlatform()
+}

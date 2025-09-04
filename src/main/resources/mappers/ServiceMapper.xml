@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- The namespace MUST match the fully qualified name of the Java Mapper interface -->
+<mapper namespace="kr.co.ictedu.pitched.client.dao.ServiceDataMapper">
+
+    <!-- A reusable result map to map table columns to DTO fields. Good practice for consistency. -->
+    <resultMap id="ServiceDataResultMap" type="kr.co.ictedu.pitched.client.dto.ServiceData">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="description" column="description"/>
+    </resultMap>
+
+    <!-- SQL for the findAll() method -->
+    <select id="findAll" resultMap="ServiceDataResultMap">
+        SELECT id, name, description FROM your_oracle_table
+    </select>
+
+    <!-- SQL for the findById() method -->
+    <select id="findById" parameterType="long" resultMap="ServiceDataResultMap">
+        SELECT id, name, description FROM your_oracle_table WHERE id = #{id}
+    </select>
+
+    <!--
+      - SQL for the insert() method.
+      - It uses a <selectKey> to get the next value from your Oracle sequence BEFORE running the insert.
+      - The new ID is placed into the 'id' property of the ServiceData object that was passed in.
+    -->
+    <insert id="insert" parameterType="kr.co.ictedu.pitched.client.dto.ServiceData">
+        <selectKey keyProperty="id" resultType="long" order="BEFORE">
+            SELECT YOUR_ORACLE_TABLE_SEQ.NEXTVAL FROM DUAL
+        </selectKey>
+        INSERT INTO your_oracle_table (id, name, description)
+        VALUES (#{id}, #{name}, #{description})
+    </insert>
+
+    <!-- SQL for the update() method -->
+    <update id="update" parameterType="kr.co.ictedu.pitched.client.dto.ServiceData">
+        UPDATE your_oracle_table
+        SET name = #{name},
+            description = #{description}
+        WHERE id = #{id}
+    </update>
+
+</mapper>
